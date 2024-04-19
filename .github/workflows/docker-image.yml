@@ -1,6 +1,6 @@
 name: Docker Image CI
 
-ON:
+on:
   push:
     branches: [ "main" ]
   pull_request:
@@ -18,4 +18,4 @@ ON:
       run: docker build . --file Dockerfile --tag mi-primer-contenedor:latest
 
       - name: Run image
-      run: docker run mi-primer-contenedor:latest
+        run: docker run mi-primer-contenedor:latest
