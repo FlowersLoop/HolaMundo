@@ -1,0 +1,21 @@
+name: Docker Image CI
+
+ON:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  jobs:
+
+    build:
+
+      runs-on: ubuntu-latest
+
+      steps:
+      - uses: actions/chekout@v3
+      - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag mi-primer-contenedor:latest
+
+      - name: Run image
+      run: docker run mi-primer-contenedor:latest
